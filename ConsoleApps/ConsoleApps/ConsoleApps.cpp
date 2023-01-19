@@ -1,8 +1,7 @@
 ﻿#include <iostream>
-using namespace std;
 
 int main()
 {
-	cout << "Yay, I'm learning C++!" << endl;
+	std::cout << "Yay, I'm learning C++!" << std::endl;
 	return 0;
 }
