@@ -3,13 +3,9 @@
 
 int main()
 {
-	int carb_grams;
-	int fat_grams;
-	int protein_grams;
-
-	carb_grams = 10;
-	fat_grams = 20;
-	protein_grams = 15;
+	int carb_grams = 10;
+	int fat_grams = 20;
+	int protein_grams = 15;
 
 	int total_calories = carb_grams * 4 + fat_grams * 9 + protein_grams * 4;
 	std::cout << "Yay, I'm learning C++!" << std::endl;
