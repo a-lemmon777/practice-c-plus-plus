@@ -1,4 +1,4 @@
-﻿project(CalorieCalculator)
+﻿project(Variables)
 
 set(PROJECT_SOURCES
     src/main.cpp)

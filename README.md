@@ -5,5 +5,5 @@ To run a program, navigate to a project folder and run it's src/main.cpp file.
 
 ## Programs
 
-- CalorieCalculator
+- Variables
     - Program uses variables and simple arithmetic.
