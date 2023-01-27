@@ -3,4 +3,4 @@
 project ("PracticeCPlusPlus")
 
 add_subdirectory("000HelloWorld")
-add_subdirectory ("Variables")
+add_subdirectory ("001Variables")
