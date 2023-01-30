@@ -10,3 +10,6 @@ To run a program, navigate to a project folder and run it's src/main.cpp file.
 
 - 001Variables
     - Program uses variables and simple arithmetic.
+
+- 002Division
+    - Program uses integer division and explores the intricacies of using the modulo operator with negative operands.
