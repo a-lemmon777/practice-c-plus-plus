@@ -16,3 +16,6 @@ To run a program, navigate to a project folder and run it's src/main.cpp file.
 
 - 003Input
     - Program demonstrates getting input from the user.
+
+- 004Booleans
+    - Program uses boolean variables and boolean operators.
