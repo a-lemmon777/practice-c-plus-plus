@@ -19,3 +19,6 @@ To run a program, navigate to a project folder and run it's src/main.cpp file.
 
 - 004Booleans
     - Program uses boolean variables and boolean operators.
+
+- 005ComparisonOperators
+    - Program uses comparison operators.
