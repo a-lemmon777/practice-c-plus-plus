@@ -22,3 +22,6 @@ To run a program, navigate to a project folder and run it's src/main.cpp file.
 
 - 005ComparisonOperators
     - Program uses comparison operators.
+
+- 006Conditionals
+    - Program uses conditional statements: if, else, and else if.
