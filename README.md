@@ -25,3 +25,6 @@ To run a program, navigate to a project folder and run it's src/main.cpp file.
 
 - 006Conditionals
     - Program uses conditional statements: if, else, and else if.
+
+- 007WhileLoops
+    - Uses a while loop to list the Fibonacci sequence up to the first item that exceeds 1 million.
