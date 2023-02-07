@@ -4,7 +4,7 @@
 int main()
 {
     std::cout << "Let's play a guessing game!" << std::endl;
-    std::cout << "Imagine 23 hats lying on a table in a row." << std::endl;
+    std::cout << "Imagine 23 hats placed on a table in a row." << std::endl;
     std::cout << "Each hat has a number on it according to its position: the leftmost hat is 1 and the rightmost "
         "hat is 23." << std::endl;
     std::cout << "A friendly hamster named Douglas is hiding under a random hat. If you check under a hat and Douglas "
@@ -14,9 +14,9 @@ int main()
     std::cout << std::endl;
 
     std::cout << "To start please enter any integer to seed the humble random number generator: ";
-    int seed = 0;
+    int seed;
     std::cin >> seed;
-    std::cout << "Thanks! Douglas has found a random spot to hide!" << std::endl;
+    std::cout << "Thanks! Douglas has found a random hat to hide under!" << std::endl;
 
     /*
     * To get Douglas' starting place, we need to generate a pseudorandom number based on the seed the user entered.
