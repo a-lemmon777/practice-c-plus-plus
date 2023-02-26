@@ -31,3 +31,6 @@ To run a program, navigate to a project folder and run it's src/main.cpp file.
 
 - 008DoWhileLoops
     - Uses a do while loop to implement a guessing game for the user.
+
+- 009StaticLocalVariables
+    - Demonstrates using static local variables, which stay in memory for the entire execution of the program.
