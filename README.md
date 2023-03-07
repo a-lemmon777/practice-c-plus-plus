@@ -34,3 +34,6 @@ To run a program, navigate to a project folder and run it's src/main.cpp file.
 
 - 009StaticLocalVariables
     - Demonstrates using static local variables, which stay in memory for the entire execution of the program.
+
+- 010CMathLibrary
+    - This program imports the CMath library and uses some of its functions.
