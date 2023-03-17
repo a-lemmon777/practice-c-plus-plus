@@ -1,4 +1,4 @@
-// Uses a random number generation for a guessing game.
+// Uses random number generation for a guessing game.
 
 #include <cstdlib>
 #include <ctime>
