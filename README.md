@@ -40,3 +40,6 @@ To run a program, navigate to a project folder and run it's src/main.cpp file.
 
 - 011RandomNumbers
     - Uses random number generation for a guessing game.
+
+- 012Arrays
+    - Uses an array to store bowling scores.
