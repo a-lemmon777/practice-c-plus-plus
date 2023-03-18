@@ -1,5 +1,4 @@
 // Uses an array to store bowling scores.
-
 #include <iostream>
 
 int main()
