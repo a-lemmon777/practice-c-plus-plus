@@ -42,7 +42,7 @@ To run a program, navigate to a project folder and run it's src/main.cpp file.
     - Uses random number generation for a guessing game.
 
 - 012Arrays
-    - Uses an array to store bowling scores.
+    - Explores the details of declaring, initializing, and accessing arrays.
 
 - 013Vectors
     - 
