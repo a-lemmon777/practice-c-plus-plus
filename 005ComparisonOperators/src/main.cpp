@@ -4,7 +4,7 @@
 int main()
 {
     std::cout << "Please enter your age: ";
-    int age;
+    int age = 0;
     std::cin >> age;
 
     std::cout << "Some facts about you (0 means false, 1 means true):" << std::endl;
