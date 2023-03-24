@@ -4,16 +4,16 @@
 int main()
 {
     // Calorie calculator
-    int carb_grams = 10;
-    int fat_grams = 20;
-    int protein_grams = 15;
+    const int carbGrams = 10;
+    const int fatGrams = 20;
+    const int proteinGrams = 15;
 
-    int total_calories = carb_grams * 4 + fat_grams * 9 + protein_grams * 4;
+    const int total_calories = carbGrams * 4 + fatGrams * 9 + proteinGrams * 4;
     std::cout << "There are " << total_calories << " total calories." << std::endl;
 
     // Weeks to days calculation
-    int weeks = 20;
-    int days = weeks * 7;
+    const int weeks = 20;
+    const int days = weeks * 7;
     std::cout << "There are " << days << " days in " << weeks << " week(s)." << std::endl;
     return 0;
 }
