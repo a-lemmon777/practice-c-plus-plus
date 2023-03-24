@@ -4,10 +4,10 @@
 int main()
 {
     std::cout << "For this program, false will print as 0 and true will print as 1." << std::endl;
-    bool isMoonCheese = false;
-    bool isPigFlying = false;
-    bool isGiraffeTall = true;
-    bool isWaterWet = true;
+    const bool isMoonCheese = false;
+    const bool isPigFlying = false;
+    const bool isGiraffeTall = true;
+    const bool isWaterWet = true;
     
     std::cout << "isMoonCheese: " << isMoonCheese << std::endl;
     std::cout << "isPigFlying: " << isPigFlying << std::endl;
