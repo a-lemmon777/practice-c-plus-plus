@@ -4,7 +4,7 @@
 // Elements of uninitialized arrays declared outside functions will be a zero of the array base type.
 int arrayOutsideFunction[3];
 
-int getFive()
+int GetFive()
 {
     return 5;
 }
@@ -18,7 +18,8 @@ int main()
     std::cout
         << "Elements of uninitialized arrays declared outside functions will be a zero of the array base type."
         << std::endl;
-    for (int i = 0; i < 3; i++) {
+    for (int i = 0; i < 3; i++)
+    {
         std::cout << arrayOutsideFunction[i] << std::endl;
     }
 
@@ -26,12 +27,13 @@ int main()
         << "Elements of uninitialized arrays declared inside functions are not guaranteed"
         << " to be a zero of the array base type."
         << std::endl;
-    for (int i = 0; i < 3; i++) {
+    for (int i = 0; i < 3; i++)
+    {
         std::cout << arrayInsideFunction[i] << std::endl;
     }
 
     // Some C++ compilers won't allow non-constant array sizes.
-    //int runtimeSizeArray[getFive()];
+    //int runtimeSizeArray[GetFive()];
 
     // Arrays can be declared with an explicit size.
     int arrayWithSize[2];
@@ -60,15 +62,18 @@ int main()
     //std::cout << lengthThreeArray[8];
     //lengthThreeArray[8] = 18;
 
-    int numberOfScores = 6;
-    int bowlingScores[6] = { 100, 78, 138, 94, 164, 89 };
+    const int numberOfScores = 6;
+    const int bowlingScores[6] = { 100, 78, 138, 94, 164, 89 };
+
+    // No elements can be modified in a const array.
+    //bowlingScores[0] = 3000;
 
     // Finds the highest bowling score.
     int highestScore = bowlingScores[0];
-    for (int i = 1; i < numberOfScores; i++) {
-        if (bowlingScores[i] > highestScore) {
+    for (int i = 1; i < numberOfScores; i++)
+    {
+        if (bowlingScores[i] > highestScore)
             highestScore = bowlingScores[i];
-        }
     }
 
     std::cout << "The highest bowling score: " << highestScore << std::endl;
