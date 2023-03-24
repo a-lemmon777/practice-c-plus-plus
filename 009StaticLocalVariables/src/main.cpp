@@ -3,8 +3,10 @@
 
 int main()
 {
-    for (int i = 0; i < 5; i++) {
-        for (int j = 0; j < 3; j++) {
+    for (int i = 0; i < 5; i++)
+    {
+        for (int j = 0; j < 3; j++)
+        {
             /*
             * staticLocalVariable will be declared and initialized only once for the whole program.
             * The memory will persist for the whole execution of the program, even when out of scope. The variable is
