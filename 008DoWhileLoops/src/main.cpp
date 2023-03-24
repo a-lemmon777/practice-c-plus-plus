@@ -14,7 +14,7 @@ int main()
     std::cout << std::endl;
 
     std::cout << "To start please enter any integer to seed the humble random number generator: ";
-    int seed;
+    int seed = 0;
     std::cin >> seed;
     std::cout << "Thanks! Douglas has found a random hat to hide under!" << std::endl;
 
@@ -23,47 +23,50 @@ int main()
     * A crude but simple way to generate a pseudorandom number is to use a linear congruential generator. The parameters
     * chosen below comply with the Hull-Dobell Theorem so all hats should be a possible starting location for Douglas.
     */
-    int modulus = 23;
+    const int modulus = 23;
     // This formula ensures that adjustedSeed is between 0 and 22 inclusive even if the user entered a negative number.
-    int adjustedSeed = ((seed % modulus) + modulus) % modulus;
-    int multiplier = 5;
-    int increment = 1;
+    const int adjustedSeed = ((seed % modulus) + modulus) % modulus;
+    const int multiplier = 5;
+    const int increment = 1;
     // Uses a linear congruential generator to generate a number from 0 to 22 inclusive.
     int hidingSpot = ((adjustedSeed * multiplier) + increment) % modulus;
     // Add one to convert the hidingSpot to be a one-based index rather than zero-based index.
     hidingSpot++;
 
     int numGuesses = 0;
-    bool isGuessCorrect;
-    int guess;
-    do {
+    bool isGuessCorrect = false;
+    int guess = 0;
+    do
+    {
         std::cout << std::endl << "Please choose a hat to look under, from 1 to 23: ";
         std::cin >> guess;
         numGuesses++;
-        if (guess < 1) {
+        if (guess < 1)
+        {
             std::cout << "The number you entered is below the range, using 1 as the guess instead." << std::endl;
             guess = 1;
         }
-        else if (guess > 23) {
+        else if (guess > 23)
+        {
             std::cout << "The number you entered is above the range, using 23 as the guess instead." << std::endl;
             guess = 23;
         }
         
         isGuessCorrect = (guess == hidingSpot);
-        if (guess < hidingSpot) {
+        if (guess < hidingSpot)
+        {
             std::cout << "You guessed too low. Douglas was in a higher-numbered hat!" << std::endl;
             // Douglas moves up a hat unless he's already in hat 23.
-            if (hidingSpot < 23) {
+            if (hidingSpot < 23)
                 hidingSpot++;
-            }
             std::cout << "Douglas has moved one hat higher! (unless he was already in the highest hat)" << std::endl;
         }
-        else if (guess > hidingSpot) {
+        else if (guess > hidingSpot)
+        {
             std::cout << "You guessed too high. Douglas was in a lower-numbered hat!" << std::endl;
             // Douglas moves down a hat unless he's already in hat 1.
-            if (hidingSpot > 1) {
+            if (hidingSpot > 1)
                 hidingSpot--;
-            }
             std::cout << "Douglas has moved one hat lower! (unless he was already in the lowest hat)" << std::endl;
         }
     } while (!isGuessCorrect);
