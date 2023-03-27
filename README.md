@@ -45,4 +45,4 @@ To run a program, navigate to a project folder and run it's src/main.cpp file.
     - Explores the details of declaring, initializing, and accessing arrays.
 
 - 013Vectors
-    - 
+    - Explores the details of using vectors.

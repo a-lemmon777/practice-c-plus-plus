@@ -1,4 +1,4 @@
-// A
+// Explores the details of using vectors.
 #include <iostream>
 #include <vector>
 
@@ -7,20 +7,26 @@ int GetFive()
     return 5;
 }
 
-int* GetArray()
-{
-    int smallArray[] = { 8, 9, 10 };
-    return smallArray;
-}
-
 int main()
 {
+    // Using pushback
+    std::vector<int> myVector;
+    myVector.push_back(5);
+    myVector.push_back(6);
+    myVector.push_back(7);
+
+    std::cout << "Contents of myVector:" << std::endl;
+    for (int i = 0; i < myVector.size(); i++)
+        std::cout << myVector[i] << std::endl;
+
+    std::cout << "Size of myVector: " << myVector.size() << std::endl;
+
     // Assigning one vector to another
     // "Overwriting" a vector with another one
     // Assigning a vector to another, then modifying to see if it changes both.
     // Experimenting with const on a vector
     // accessing out of bounds with both square brackets and at()
-    // using pushback
+    
     // resizing larger
     // resizing larger with a specified value for the new elements.
     // resizing smaller
@@ -35,10 +41,7 @@ int main()
     // Initializing with a size that's determined at runtime.
 
 
-    std::vector<int> myVector;
-    myVector.push_back(5);
 
-    std::cout << myVector[0] << std::endl;
 
     std::vector<int> otherVector = myVector;
 
@@ -85,7 +88,8 @@ int main()
         std::cout << accounts[i] << std::endl;
     }
 
-    std::cout << accounts.at(10) << std::endl;
+    // Both of these lines throw an exception.
+    //std::cout << accounts.at(10) << std::endl;
     //std::cout << accounts[10] << std::endl;
 
     return 0;
