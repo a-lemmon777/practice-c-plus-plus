@@ -7,6 +7,17 @@ int GetFive()
     return 5;
 }
 
+void PrintVectorInfo(const std::vector<int>& vectorToPrint)
+{
+    std::cout << "Contents of vector: ";
+    for (unsigned int i = 0; i < vectorToPrint.size(); i++)
+        std::cout << vectorToPrint[i] << ' ';
+    std::cout << std::endl;
+    std::cout << "Size of vector: " << vectorToPrint.size() << std::endl;
+    std::cout << "Capacity of vector: " << vectorToPrint.capacity() << std::endl;
+    std::cout << "_________________________" << std::endl;
+}
+
 int main()
 {
     // Using pushback
@@ -15,22 +26,18 @@ int main()
     myVector.push_back(6);
     myVector.push_back(7);
 
-    std::cout << "Contents of myVector:" << std::endl;
-    for (int i = 0; i < myVector.size(); i++)
-        std::cout << myVector[i] << std::endl;
+    std::cout << "Added 3 items to myVector." << std::endl;
+    PrintVectorInfo(myVector);
 
-    std::cout << "Size of myVector: " << myVector.size() << std::endl;
-
-    // Assigning one vector to another
-    // "Overwriting" a vector with another one
-    // Assigning a vector to another, then modifying to see if it changes both.
-    // Experimenting with const on a vector
-    // accessing out of bounds with both square brackets and at()
+    // Resizing smaller
+    myVector.resize(2);
+    std::cout << "Resized myVector to size 2." << std::endl;
+    PrintVectorInfo(myVector);
     
     // resizing larger
     // resizing larger with a specified value for the new elements.
     // resizing smaller
-    // getting the size
+
     // making a vector with an initial size
     // maybe initializing vectors inside functions vs outside functions.
     // Initializing a vector with brace notation.
@@ -40,6 +47,11 @@ int main()
     // Initializing a vector with all the same value.
     // Initializing with a size that's determined at runtime.
 
+    // Assigning one vector to another
+    // "Overwriting" a vector with another one
+    // Assigning a vector to another, then modifying to see if it changes both.
+    // Experimenting with const on a vector
+    // accessing out of bounds with both square brackets and at()
 
 
 
