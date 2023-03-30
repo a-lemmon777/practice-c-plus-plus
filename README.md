@@ -46,3 +46,6 @@ To run a program, navigate to a project folder and run it's src/main.cpp file.
 
 - 013Vectors
     - Explores the details of using vectors.
+
+- 014Strings
+    - Explores using the string type and the getline function.
