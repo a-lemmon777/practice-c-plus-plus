@@ -2,6 +2,17 @@
 
 project("PracticeCPlusPlus")
 
+# Valid values are 98, 11, 14, 17, 20, and 23.
+set(CMAKE_CXX_STANDARD 98)
+set(CMAKE_CXX_STANDARD_REQUIRED True)
+message("#### USING C++ STANDARD: C++${CMAKE_CXX_STANDARD}. ####")
+
+if(MSVC AND NOT(CMAKE_CXX_STANDARD EQUAL 98) AND NOT(CMAKE_CXX_STANDARD EQUAL 11))
+    add_compile_options("/std:c++${CMAKE_CXX_STANDARD}" "/Zc:__cplusplus")
+    message("#### USING MSVC WITH C++ NEWER THAN C++11. ####")
+endif()
+
+
 add_subdirectory("000HelloWorld")
 add_subdirectory("001Variables")
 add_subdirectory("002Division")
