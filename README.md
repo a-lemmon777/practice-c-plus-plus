@@ -55,3 +55,6 @@ To run a program, navigate to a project folder and run it's src/main.cpp file.
 
 - 016AssociativeContainers
     - Uses several kinds of multitype containers.
+
+- 017DefiningFunctions
+    - Demonstrates writing functions.
