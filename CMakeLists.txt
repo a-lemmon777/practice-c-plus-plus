@@ -3,7 +3,7 @@
 project("PracticeCPlusPlus")
 
 # Valid values are 98, 11, 14, 17, 20, and 23.
-set(CMAKE_CXX_STANDARD 98)
+set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 message("#### USING C++ STANDARD: C++${CMAKE_CXX_STANDARD}. ####")
 
@@ -31,3 +31,4 @@ add_subdirectory("014Strings")
 add_subdirectory("015StringStreams")
 add_subdirectory("016AssociativeContainers")
 add_subdirectory("017DefiningFunctions")
+add_subdirectory("018Maps")
