@@ -9,6 +9,8 @@ int main()
     std::map<std::string, int> flowerCounts;
 
     // Adding to the map with square bracket notation.
+    // The square brackets actually create a new element with the given key, and returns a reference to the value.
+    // Then assignment can be used on the reference.
     flowerCounts["Tulip"] = 12;
     flowerCounts["Daisy"] = 10;
     flowerCounts["Rose"] = 20;
@@ -20,14 +22,15 @@ int main()
     insertReturn = flowerCounts.insert({ "Orchid", 30 });
     std::cout << "Inserting Orchid first time. Success? " << insertReturn.second << std::endl;
     insertReturn = flowerCounts.insert({ "Orchid", 10000 });
-    std::cout << "Inserting Orchid first time. Success? " << insertReturn.second << std::endl;
+    std::cout << "Inserting Orchid second time. Success? " << insertReturn.second << std::endl;
     std::cout << "There should be 30 Orchids: " << flowerCounts.at("Orchid") << std::endl;
 
     // Another example of insert.
     flowerCounts.insert(std::pair<std::string, int>("Lily", 5));
 
-    // Adding with emplace. You can pass the key and value separately, rather than needing to pair them yourself.
-    flowerCounts.emplace("Carnation", 4);
+    // Adding with emplace. You can pass the key and value separately, rather than needing to construct the pair
+    // yourself. It returns a pair of iterator and bool, just like insert().
+    insertReturn = flowerCounts.emplace("Carnation", 4);
 
     // Looking up the value of a key with square brackets. Careful! It will add the key if it's not there.
     std::cout << "Number of tulips: " << flowerCounts["Tulip"] << std::endl;
@@ -39,11 +42,32 @@ int main()
     // For safer access, use at().
     std::cout << "Number of roses: " << flowerCounts.at("Rose") << std::endl;
 
-    // You can use at() to alter the value at a key.
+    // You can use at() to get a reference to the value. If you want you can then alter that value..
     flowerCounts.at("Rose") = 100;
 
     // at() will throw an exception if the key isn't found.
     //flowerCounts.at("AAAAAAA");
+
+    // You can get access to a whole key/value pair with find().
+    std::map<std::string, int>::iterator iter = flowerCounts.find("Daisy");
+    std::cout << "Found: " << iter->first << ", Value: " << iter->second << std::endl;
+    // You can modify the value if you want, but not the key.
+    iter->second = 10000;
+    //iter->first = "Porcupine";
+
+
+    // If the element doesn't exist, find() will return an iterator to past-the-end, equal to map.end().
+    // With that iterator, you won't be able to do ->first or ->second.
+    iter = flowerCounts.find("Llama");
+    //std::cout << "Found: " << iter->first << ", Value: " << iter->second << std::endl;
+
+    // Check if a key already exists with count. Since keys must be unique with maps, count will return only 0 or 1.
+    std::cout << "Is Squirrel in the map?: " << flowerCounts.count("Squirrel") << std::endl;
+    std::cout << "Is Rose in the map?: " << flowerCounts.count("Rose") << std::endl;
+
+    // You can remove an element by key with erase(). It will return 1 if the element was removed and 0 if not.
+    int erased = flowerCounts.erase("Daisy");
+    std::cout << "Daisy erased?: " << erased << std::endl;
 
     // Getting the number of entries (size)
     std::cout << "Number of entries in map: " << flowerCounts.size() << std::endl;
@@ -75,13 +99,7 @@ int main()
         std::cout << it->first << ": " << it->second << std::endl;
     }
 
-    /* Things to try */
-    // Add
-    // Lookup
-    // Update a value at a key
-    // Move a value to a different key
-    // Remove
-    // Check if a key exists
-    // Clear
-    // Iterate through
+    // You can clear the whole map with clear().
+    flowerCounts.clear();
+    std::cout << "The map flowerCounts was cleared. Size: " << flowerCounts.size();
 }
