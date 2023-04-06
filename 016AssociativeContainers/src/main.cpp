@@ -1,7 +1,7 @@
 // Uses several kinds of multitype containers.
-#include<iostream>
-#include<string>
-#include<utility>
+#include <iostream>
+#include <string>
+#include <utility>
 
 int main()
 {
