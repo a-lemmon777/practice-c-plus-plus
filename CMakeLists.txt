@@ -12,7 +12,6 @@ if(MSVC AND NOT(CMAKE_CXX_STANDARD EQUAL 98) AND NOT(CMAKE_CXX_STANDARD EQUAL 11
     message("#### USING MSVC WITH C++ NEWER THAN C++11. ####")
 endif()
 
-
 add_subdirectory("000HelloWorld")
 add_subdirectory("001Variables")
 add_subdirectory("002Division")
@@ -32,3 +31,4 @@ add_subdirectory("015StringStreams")
 add_subdirectory("016AssociativeContainers")
 add_subdirectory("017DefiningFunctions")
 add_subdirectory("018Maps")
+add_subdirectory("019References")

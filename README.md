@@ -58,3 +58,9 @@ To run a program, navigate to a project folder and run it's src/main.cpp file.
 
 - 017DefiningFunctions
     - Demonstrates writing functions.
+
+- 018Maps
+    - Demonstrates using maps.
+
+- 019References
+    - Demonstrates using references for variables, parameters, and return types.
