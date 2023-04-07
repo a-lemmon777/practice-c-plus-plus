@@ -64,3 +64,6 @@ To run a program, navigate to a project folder and run it's src/main.cpp file.
 
 - 019References
     - Demonstrates using references for variables, parameters, and return types.
+
+- 020Exceptions
+    - Demonstrates defining, throwing, catching, and handling exceptions.
