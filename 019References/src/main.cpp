@@ -42,6 +42,22 @@ private:
     int memberNum = 7;
 };
 
+// This is a very bad idea. Once the variable goes out of scope, that reference could address literally anything
+// that could change at any time.
+int& ReturnByRefOutOfScope()
+{
+    int toReturn = 30;
+    return toReturn;
+}
+
+// This is a very bad idea. Once the variable goes out of scope, that reference could address literally anything
+// that could change at any time.
+const int& ReturnByConstRefOutOfScope()
+{
+    int toReturn = 40;
+    return toReturn;
+}
+
 int main()
 {
     int num = 5;
@@ -76,6 +92,25 @@ int main()
     std::cout << &returnByValNum << "<- returnByValNum address" << std::endl;
     std::cout << &numReturner.ReturnByRefNum() << "<- ReturnByRefNum address" << std::endl;
     std::cout << &numReturner.ReturnByConstRefNum() << "<- ReturnByConstRefNum address" << std::endl;
-        
+
+    // Passing a literal to a pass-by-reference parameter isn't allowed. The argument must be an lvalue: something with
+    // a defined region of storage.
+    //CallByRefNum(5);
+
+    // Passing a literal to a pass-by-const-reference parameter is ok, since the function wouldn't be able to change
+    // the value at the memory location anyway.
+    CallByConstRefNum(5);
+
+    // Both of these are referencing variables that have gone out of scope. So the values of the memory at these
+    // references could be alterd at any time, leading to undefined behavior.
+    //int& returnedByRefOutOfScope = ReturnByRefOutOfScope();
+    //const int& returnedByConstRefOutOfScope = ReturnByConstRefOutOfScope();
+
+    // These copy the values returned into new memory, so these lines aren't as bad as the ones above.
+    // But the real problem lies in these function definitions, not necessarily in calls to them.
+    int regularInt = ReturnByRefOutOfScope();
+    int otherRegularInt = ReturnByConstRefOutOfScope();
+
+
     return 0;
 }
