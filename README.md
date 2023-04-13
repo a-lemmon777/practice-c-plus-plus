@@ -67,3 +67,6 @@ To run a program, navigate to a project folder and run it's src/main.cpp file.
 
 - 020Exceptions
     - Demonstrates defining, throwing, catching, and handling exceptions.
+
+- 021Stacks
+    - Demonstrates using stacks.
