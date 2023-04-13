@@ -6,7 +6,7 @@
 #include <vector>
 
 // Throwing a programmer-defined exception.
-double carefulSqrt(double input)
+double CarefulSqrt(double input)
 {
     if (input < 0)
     {
@@ -17,13 +17,13 @@ double carefulSqrt(double input)
 }
 
 // Constructing and throwing an exception in one line.
-void throwOneLinerException()
+void ThrowOneLinerException()
 {
     throw std::exception();
 }
 
 // Throwing different exception types.
-void updateHamsterWeight(std::vector<double> hamsterWeights, int indexToUpdate, double newWeight)
+void UpdateHamsterWeight(std::vector<double> hamsterWeights, int indexToUpdate, double newWeight)
 {
     if (indexToUpdate < 0)
         throw std::out_of_range("Hamster index can't be negative.");
@@ -50,7 +50,7 @@ int main()
     // Catching a programmer-defined exception.
     try
     {
-        carefulSqrt(-4);
+        CarefulSqrt(-4);
     }
     catch (const std::exception& e)
     {
@@ -59,7 +59,7 @@ int main()
 
     try
     {
-        throwOneLinerException();
+        ThrowOneLinerException();
     }
     catch (const std::exception& e)
     {
@@ -72,7 +72,7 @@ int main()
     try
     {
         std::vector<double> hamsterWeights = { 2.5 };
-        updateHamsterWeight(hamsterWeights, 10, 3.5);
+        UpdateHamsterWeight(hamsterWeights, 10, 3.5);
     }
     catch (const std::invalid_argument& e)
     {
