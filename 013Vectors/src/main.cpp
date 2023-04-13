@@ -46,6 +46,15 @@ int main()
     std::cout << "Resized myVector to size 6, with a value of 8 being specified for the new elements." << std::endl;
     PrintVectorInfo(myVector);
 
+    // Removing elements at the end.
+    myVector.pop_back();
+    std::cout << "Popped the back of the vector." << std::endl;
+    PrintVectorInfo(myVector);
+
+    // Getting the first and last elements
+    std::cout << "First element: " << myVector.front() << " Last element: " << myVector.back() << std::endl;
+    std::cout << std::endl;
+
     // Making a vector with an initial size.
     std::vector<int> vectorWithInitialSize(3);
     std::cout << "Declared a vector with an initial size of 3." << std::endl;
