@@ -1,6 +1,7 @@
-project(Arrays)
+project("Arrays")
 
 set(PROJECT_SOURCES
-    src/main.cpp)
+    "src/main.cpp"
+)
 
 add_executable(${PROJECT_NAME} ${PROJECT_SOURCES})
