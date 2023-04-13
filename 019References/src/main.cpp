@@ -19,27 +19,27 @@ void CallByConstRefNum(const int& constRefArgNum)
 
 class NumReturner
 {
+private:
+    int m_memberNum = 7;
+
 public:
     int ReturnByValNum()
     {
-        std::cout << &memberNum << "<- memberNum address from ReturnByValNum" << std::endl;
-        return memberNum;
+        std::cout << &m_memberNum << "<- m_memberNum address from ReturnByValNum" << std::endl;
+        return m_memberNum;
     }
 
     int& ReturnByRefNum()
     {
-        std::cout << &memberNum << "<- memberNum address from ReturnByRefNum" << std::endl;
-        return memberNum;
+        std::cout << &m_memberNum << "<- m_memberNum address from ReturnByRefNum" << std::endl;
+        return m_memberNum;
     }
 
     const int& ReturnByConstRefNum()
     {
-        std::cout << &memberNum << "<- memberNum address from ReturnByConstRefNum" << std::endl;
-        return memberNum;
+        std::cout << &m_memberNum << "<- m_memberNum address from ReturnByConstRefNum" << std::endl;
+        return m_memberNum;
     }
-
-private:
-    int memberNum = 7;
 };
 
 // This is a very bad idea. Once the variable goes out of scope, that reference could address literally anything
