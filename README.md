@@ -76,3 +76,6 @@ To run a program, navigate to a project folder and run it's src/main.cpp file.
 
 - 023Deques
     - Demonstrates using deques.
+
+- 024Lists
+    - Demonstrates using lists (doubly-linked lists).
