@@ -159,5 +159,71 @@ int main()
     assignedList = { GroceryItem("Salt", 1), GroceryItem("Pepper", 1) };
     PrintList(assignedList);
 
+    PrintDivider();
+    std::cout << "I think the assign function completely replaces the elements in a list with newly specified elements."
+        << std::endl;
+    std::cout << "It will \"reuse\" any existing elements in the list by using the element type's assignment operator."
+        << std::endl;
+    std::cout << "This means that the existing elements will be modified in-place with new data for its member"
+        " variables." << std::endl;
+    std::cout << "If there are more old elements than new elements, any extra old ones will be removed." << std::endl;
+    std::cout << "If there are more new elements than old elements, the extra new elements will be newly constructed."
+        << std::endl;
+
+    PrintDivider();
+    std::cout << "Assigning over a 2-element list with 1 new element." << std::endl;
+    assignedList.assign(1, pickleItem);
+    PrintList(assignedList);
+
+    PrintDivider();
+    std::cout << "Assiging over a 1-element list with 1 new element with the same member variable values (but different"
+        " address)." << std::endl;
+    assignedList.assign(1, pickleItem);
+    PrintList(assignedList);
+
+    PrintDivider();
+    std::cout << "Assigning over a 1-element list with 1 new element. These elements are identical, sharing an address."
+        << std::endl;
+    GroceryItem& existingItem = assignedList.front();
+    assignedList.assign(1, existingItem);
+    PrintList(assignedList);
+
+    PrintDivider();
+    std::cout << "Assigning over a 1-element list with 2 new elements." << std::endl;
+    assignedList.assign(2, pumpkinItem);
+    PrintList(assignedList);
+
+    PrintDivider();
+    std::cout << "Proving that each element has its own address, even though they're all copied from the same item."
+        << std::endl;
+    GroceryItem tomatoItem("Tomato", 9);
+    GroceryItem& tomatoRef = tomatoItem;
+    assignedList.assign(5, tomatoRef);
+    PrintList(assignedList);
+    std::cout << "Each item should have a different address:" << std::endl;
+    for (GroceryItem& item : assignedList)
+    {
+        std::cout << &item << std::endl;
+    }
+
+    PrintDivider();
+    std::cout << "Assigning using iterators." << std::endl;
+    assignedList.assign(lotsOfPickles.begin(), lotsOfPickles.end());
+    PrintList(assignedList);
+
+    PrintDivider();
+    std::cout << "Assigning using pre-constructed items using a braced init list." << std::endl;
+    assignedList.assign({ appleItem, pumpkinItem, tofuItem });
+    PrintList(assignedList);
+
+    PrintDivider();
+    std::cout << "Reducing list to 1 item." << std::endl;
+    assignedList.resize(1);
+    PrintList(assignedList);
+    std::cout << "Assigning using a braced init list, but newly constructing each object within the braces."
+        << std::endl;
+    assignedList.assign({ GroceryItem("Salt", 1), GroceryItem("Pepper", 1) });
+    PrintList(assignedList);
+
     return 0;
 }
