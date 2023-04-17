@@ -26,6 +26,18 @@ public:
         std::cout << "Copy constructed a GroceryItem: " << ToString() << std::endl;
     }
 
+    GroceryItem(GroceryItem&& other) noexcept
+        : m_foodName(std::move(other.m_foodName))
+        , m_quantity(std::move(other.m_quantity))
+    {
+        std::cout << "Move constructed a GroceryItem: " << ToString() << std::endl;
+    }
+
+    ~GroceryItem()
+    {
+        std::cout << "Deconstructed a GroceryItem: " << ToString() << std::endl;
+    }
+
     GroceryItem& operator=(const GroceryItem& other)
     {
         std::cout << "GroceryItem assignment operator. Old data: " << ToString();
@@ -161,8 +173,9 @@ int main()
 
     PrintDivider();
     std::cout << "Operator assigning to a list using move assignment." << std::endl;
-    std::cout << "Starting a list with 2 kinds of bread." << std::endl;
+    std::cout << "Clearing old list." << std::endl;
     assignedList.clear();
+    std::cout << "Starting a list with 2 kinds of bread." << std::endl;
     assignedList.push_back(slicedBread);
     assignedList.push_back(baguette);
     PrintList(assignedList);
@@ -175,8 +188,9 @@ int main()
 
     PrintDivider();
     std::cout << "Operator assigning to a list with pre-constructed items using a braced init list." << std::endl;
-    std::cout << "Starting a list with 2 kinds of bread." << std::endl;
+    std::cout << "Clearing old list." << std::endl;
     assignedList.clear();
+    std::cout << "Starting a list with 2 kinds of bread." << std::endl;
     assignedList.push_back(slicedBread);
     assignedList.push_back(baguette);
     PrintList(assignedList);
@@ -188,8 +202,9 @@ int main()
     PrintDivider();
     std::cout << "Operator Assigning to a list with a braced init list, but newly constructing each object within the"
         " braces." << std::endl;
-    std::cout << "Starting a list with 2 kinds of bread." << std::endl;
+    std::cout << "Clearing old list." << std::endl;
     assignedList.clear();
+    std::cout << "Starting a list with 2 kinds of bread." << std::endl;
     assignedList.push_back(slicedBread);
     assignedList.push_back(baguette);
     PrintList(assignedList);
@@ -198,7 +213,7 @@ int main()
     PrintList(assignedList);
 
     PrintDivider();
-    std::cout << "Assigning over a 2-element list with 1 new element." << std::endl;
+    std::cout << "Assigning over a 3-element list with 1 new element." << std::endl;
     assignedList.assign(1, pickleItem);
     PrintList(assignedList);
 
@@ -251,6 +266,27 @@ int main()
         << std::endl;
     assignedList.assign({ GroceryItem("Salt", 1), GroceryItem("Pepper", 1) });
     PrintList(assignedList);
+
+    PrintDivider();
+    PrintList(assignedList);
+    std::cout << "Using emplace_front to insert an object that is constructed in place at the front." << std::endl;
+    assignedList.emplace_front("Sugar", 2);
+    PrintList(assignedList);
+
+    PrintDivider();
+    std::cout << "Using emplace_back to insert an object that is constructed in place at the back." << std::endl;
+    assignedList.emplace_back("Thyme", 1);
+    PrintList(assignedList);
+
+    PrintDivider();
+    std::cout << "Using emplace to insert an object that is constructed at the iterator position." << std::endl;
+    PrintList(assignedList);
+    std::list<GroceryItem>::iterator iterator = assignedList.begin();
+    ++iterator; // Move the iterator to the next position.
+    assignedList.emplace(iterator, "Paprika", 1);
+    PrintList(assignedList);
+
+    PrintDivider();
 
     return 0;
 }
