@@ -23,7 +23,7 @@ public:
 
     GroceryItem(const GroceryItem& other) : m_foodName(other.m_foodName), m_quantity(other.m_quantity)
     {
-        std::cout << "Constructed a GroceryItem with a copy constructor: " << ToString() << std::endl;
+        std::cout << "Copy constructed a GroceryItem: " << ToString() << std::endl;
     }
 
     GroceryItem& operator=(const GroceryItem& other)
@@ -41,7 +41,7 @@ public:
         return *this;
     }
 
-    std::string ToString()
+    std::string ToString() const
     {
         return "{" + m_foodName + ", " + std::to_string(m_quantity) + "}";
     }
@@ -130,45 +130,72 @@ int main()
     PrintList(copyConstructorList);
 
     PrintDivider();
-    std::list<GroceryItem> assignedList;
-    std::cout << "Assigning to a list using copy assignment." << std::endl;
-    assignedList = moveConstructorList;
-    PrintList(assignedList);
+    std::cout << "Making some grocery items and a sandwich list for the next examples." << std::endl;
+    GroceryItem slicedBread("Sliced Bread", 1);
+    GroceryItem peanutButter("Peanut Butter", 1);
+    GroceryItem jelly("Jelly", 1);
+    GroceryItem baguette("Baguette", 3);
+    std::list<GroceryItem> sandwichList{ slicedBread, peanutButter, jelly };
 
     PrintDivider();
-    std::cout << "Assigning to a list using move assignment." << std::endl;
-    assignedList.clear();
-    assignedList = std::move(moveConstructorList);
-    PrintList(assignedList);
-    std::cout << "The list we moved from is now empty. The compiler warns we're using a moved from object."
-        << std::endl;
-    PrintList(moveConstructorList);
-
-    PrintDivider();
-    std::cout << "Assigning to a list with pre-constructed items using a braced init list." << std::endl;
-    assignedList.clear();
-    assignedList = { appleItem, pumpkinItem, tofuItem };
-    std::cout << "Whoa! The copy constructor was used twice for each item!" << std::endl;
-    PrintList(assignedList);
-
-    PrintDivider();
-    std::cout << "Assigning to a list with a braced init list, but newly constructing each object within the braces."
-        << std::endl;
-    std::cout << "Only one copy constructor per item this time." << std::endl;
-    assignedList.clear();
-    assignedList = { GroceryItem("Salt", 1), GroceryItem("Pepper", 1) };
-    PrintList(assignedList);
-
-    PrintDivider();
-    std::cout << "I think the assign function completely replaces the elements in a list with newly specified elements."
-        << std::endl;
-    std::cout << "It will \"reuse\" any existing elements in the list by using the element type's assignment operator."
-        << std::endl;
+    std::cout << "I think the assign operator and function completely replace the elements in a list with newly"
+        " specified elements." << std::endl;
+    std::cout << "They will \"reuse\" any existing elements in the list by using the element type's assignment"
+        " operator." << std::endl;
     std::cout << "This means that the existing elements will be modified in-place with new data for its member"
         " variables." << std::endl;
     std::cout << "If there are more old elements than new elements, any extra old ones will be removed." << std::endl;
     std::cout << "If there are more new elements than old elements, the extra new elements will be newly constructed."
         << std::endl;
+
+    PrintDivider();
+    std::cout << "Operator assigning to a list." << std::endl;
+    std::cout << "Starting a list with 2 kinds of bread." << std::endl;
+    std::list<GroceryItem> assignedList;
+    assignedList.push_back(slicedBread);
+    assignedList.push_back(baguette);
+    PrintList(assignedList);
+    std::cout << "Operator assigning here." << std::endl;
+    assignedList = sandwichList;
+    PrintList(assignedList);
+
+    PrintDivider();
+    std::cout << "Operator assigning to a list using move assignment." << std::endl;
+    std::cout << "Starting a list with 2 kinds of bread." << std::endl;
+    assignedList.clear();
+    assignedList.push_back(slicedBread);
+    assignedList.push_back(baguette);
+    PrintList(assignedList);
+    std::cout << "Operator assigning here." << std::endl;
+    assignedList = std::move(sandwichList);
+    PrintList(assignedList);
+    std::cout << "The list we moved from is now empty. The compiler warns we're using a moved from object."
+        << std::endl;
+    PrintList(sandwichList);
+
+    PrintDivider();
+    std::cout << "Operator assigning to a list with pre-constructed items using a braced init list." << std::endl;
+    std::cout << "Starting a list with 2 kinds of bread." << std::endl;
+    assignedList.clear();
+    assignedList.push_back(slicedBread);
+    assignedList.push_back(baguette);
+    PrintList(assignedList);
+    std::cout << "Operator assigning here." << std::endl;
+    assignedList = { slicedBread, peanutButter, jelly };
+    std::cout << "A copy constructor is needed for each item to construct the braced init list." << std::endl;
+    PrintList(assignedList);
+
+    PrintDivider();
+    std::cout << "Operator Assigning to a list with a braced init list, but newly constructing each object within the"
+        " braces." << std::endl;
+    std::cout << "Starting a list with 2 kinds of bread." << std::endl;
+    assignedList.clear();
+    assignedList.push_back(slicedBread);
+    assignedList.push_back(baguette);
+    PrintList(assignedList);
+    std::cout << "Operator assigning here." << std::endl;
+    assignedList = { GroceryItem("Sliced Bread", 1), GroceryItem("Peanut Butter", 1), GroceryItem("Jelly", 1) };
+    PrintList(assignedList);
 
     PrintDivider();
     std::cout << "Assigning over a 2-element list with 1 new element." << std::endl;
