@@ -287,6 +287,12 @@ int main()
     PrintList(assignedList);
 
     PrintDivider();
+    std::cout << "Checking if resizing larger creates default-constructed elements." << std::endl;
+    std::list<GroceryItem> listToResize;
+    listToResize.resize(5);
+    std::cout << "It does!" << std::endl;
+
+    PrintDivider();
 
     return 0;
 }
