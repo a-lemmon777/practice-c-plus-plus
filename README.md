@@ -80,3 +80,5 @@ To run a program, navigate to a project folder and run it's src/main.cpp file.
 - 024Lists
     - Demonstrates using lists (doubly-linked lists), focusing on how the functions impact underlying element
     construction.
+- 025ForwardLists
+    - Demonstrates using forward lists (singly-linked lists).
